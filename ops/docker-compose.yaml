@@ -1,0 +1,23 @@
+services:
+  api:
+    depends_on:
+      - postgres
+    image: vigilant_waffle_api
+    build:
+      context: ../api
+      dockerfile: ../api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../api:/usr/src/app
+
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app
+    volumes:
+      - ../data/postgres-data:/var/lib/postgresql/data
