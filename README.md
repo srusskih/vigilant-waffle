@@ -20,3 +20,7 @@ pip install pre-commit
 pre-commit
 pre-commit install
 ```
+
+## Packages used
+
+[Django REST Framework](https://www.django-rest-framework.org/) - to boostrap & simplify REST api building routine
