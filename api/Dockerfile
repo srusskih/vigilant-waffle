@@ -23,6 +23,6 @@ COPY . .
 EXPOSE 8000
 
 # Run the Django application
-RUN chmod +x /opt/app/docker-entrypoint.sh
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+RUN chmod +x docker-entrypoint.sh
+ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
 CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]

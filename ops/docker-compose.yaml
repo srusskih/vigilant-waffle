@@ -10,14 +10,14 @@ services:
       - "8000:8000"
     volumes:
       - ../api:/usr/src/app
+    env_file:
+      - .env
 
   postgres:
     image: postgres:16
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: app
     volumes:
       - ../data/postgres-data:/var/lib/postgresql/data
+    env_file:
+      - .env
