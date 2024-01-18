@@ -1,1 +1,1 @@
-docker-compose -f ops/docker-compose.yaml up -d
+docker-compose -f ops/docker-compose.yaml up -d --wait

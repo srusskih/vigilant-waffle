@@ -1,7 +1,9 @@
 services:
   api:
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+
     image: vigilant_waffle_api
     build:
       context: ../api
@@ -21,3 +23,8 @@ services:
       - ../data/postgres-data:/var/lib/postgresql/data
     env_file:
       - .env
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
